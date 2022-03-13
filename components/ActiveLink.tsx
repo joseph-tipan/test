@@ -1,31 +1,27 @@
 
-import React, { CSSProperties, FC } from 'react'
-import Link from 'next/Link'
-import { useRouter } from 'next/router'
+import { CSSProperties, FC } from 'react';
+import { useRouter } from 'next/router';
+
+import Link from 'next/link';
 
 const style: CSSProperties = {
-
     color: '#0070f3',
     textDecoration: 'underline',
 }
 
-
-
 interface Props {
-
     text: string;
     href: string;
-
 }
 
-export const ActiveLink: FC<Props> = ({ text, href}) => {
 
-    const {asPath} = useRouter();
+export const ActiveLink: FC<Props> = ({ text, href }) => {
 
-  return (
+    const { asPath } = useRouter();
 
-    <Link href={href}>
-        <a style={ asPath === href ? style : undefined }>{ text} </a>
-    </Link>
-  )
-}
+    return (
+        <Link href={ href }>
+            <a style={ asPath === href ? style : undefined }>{ text }</a>
+        </Link>
+    );
+};
